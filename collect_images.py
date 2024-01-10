@@ -3,14 +3,14 @@ import mimetypes
 
 data_directory = "croptailor/oat_images/Additional data with labels/"
 
-# Ändra var du vill ha bilderna här
+# Change your destination folder here
 destination_folder = "C:/Users/eveli/Documents/Universitetskurser/Tillämpad bioinformatik/all_images/"
 
-# Kommentera bort den här raden om du redan har skapat en mapp för bilderna
+# Remove this line if you already have a folder for the images
 os.makedirs(destination_folder)
 
 def process_file(file_path, destination_file_path, chunk_size=9000):
-    print(f"Copying file: {file_path} to {destination_file_path}") #Ej nödvändig, men bra för att snabbt se om det funkar
+    print(f"Copying file: {file_path} to {destination_file_path}") # Not necessary, but useful for checking if the program is running
     try:
         with open(file_path, 'rb') as source_file:
             with open(destination_file_path, 'wb') as destination_file:
