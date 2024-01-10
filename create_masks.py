@@ -6,11 +6,11 @@ import numpy as np
 from PIL import Image
 
 
-# Ändra var du vill ha bilderna här
+# Change your destination folder here
 destination_folder = "C:/Users/eveli/Documents/Universitetskurser/Tillämpad bioinformatik/all_masks/"
 root_folder_path = "croptailor/oat_images/Additional data with labels/"
 
-# Kommentera bort den här raden om du redan har skapat en mapp för bilderna
+# Remove this line if you already have a folder for the masks
 os.makedirs(destination_folder)
 
 
@@ -111,7 +111,6 @@ def process_file(file, file_number):
 
     areas = []
     Circularities = []
-    areas = [] #EN TILL? MISSTAG?
 
     for seed in seeds:
         areas.append(seed["Area"])
@@ -125,8 +124,8 @@ def process_file(file, file_number):
     #  Real seeds seems to, __in this particular camera setup__, have reasonable seed areas vary between around 2000 - 5000
     seed_inds = np.where(np.all(np.hstack([np.array(areas) < 100000,  np.array(areas) > 200]), axis = 1))[0]
 
-    # Knasig men användbar funktion
-    def cool_file_function(output_file):
+    # Plots the masks and saves the file
+    def make_mask_file(output_file):
         fig, ax = plt.subplots()
 
         for seed in np.take(seeds, seed_inds):
@@ -137,7 +136,7 @@ def process_file(file, file_number):
         fig.savefig(output_file)
         plt.close(fig)
 
-    cool_file_function(destination_folder + file_number + '.png')
+    make_mask_file(destination_folder + file_number + '.png')
 
 def process_files_in_folder(folder_path):
     for file_name in os.listdir(folder_path):
