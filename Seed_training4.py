@@ -11,6 +11,7 @@ from mrcnn.config import Config
 from mrcnn.model import MaskRCNN
 
 """""""""""""""""""""""""""""
+Instructions
 För en testbild i samma size som trainingdata kör denna i nått script:
 
 original_image = Image.open("PATH TILL /11 random pictures from same sample/IMG_9293.JPG")
