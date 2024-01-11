@@ -21,7 +21,7 @@ resized_image.save("ÖNSKAD PATH/Test_pic_Seed.JPG")
 Lägg in denna path i Seed_prediction
 """""""""""""""""""""""""""""
 
-data_dir = "C:/Users/alvin/Desktop/Object Detection/Mask-RCNN-TF2-master/FITTA"
+data_dir = "C:/Users/alvin/Desktop/Object Detection/Mask-RCNN-TF2-master/Datafolder"
 
 class SeedDataset(utils.Dataset):
     def load_dataset(self, data_dir, is_train=True):
